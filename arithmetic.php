@@ -20,7 +20,7 @@ function add($a, $b){
 
 	} else {
 
-		throwMessage();
+		throwErrorMessage($a,$b);
 	}
 
 }
@@ -33,6 +33,12 @@ echo add($a,$b) . ' func add() called below, 5 and 3 are overwritten by 25 and 1
 
 echo add (6,10) . ' func add() called below, 6 and 10, are overwritten by 25 and 125' . PHP_EOL;
 
+
+
+
+
+
+
 function subtract($a, $b){
 
 	if(is_int($a) == true && is_int($b) == true) {
@@ -41,13 +47,20 @@ function subtract($a, $b){
 
 	} else {
 
-		throwMessage();
+		throwErrorMessage($a,$b);
 	}
 
    
 }
 
 echo subtract("5",$b) . ' func subtract() called below with params TWO' . PHP_EOL;
+
+
+
+
+
+
+
 
 function multiply($a, $b){
 
@@ -57,13 +70,14 @@ function multiply($a, $b){
 
 	} else {
 
-		throwMessage();
+		throwErrorMessage($a,$b);
 	}
     
 }
 
 
-echo multiply($a,$b) . ' func miltiply() called below with params THREE' . PHP_EOL;
+echo multiply($a,'555u') . ' func miltiply() called below with params THREE' . PHP_EOL;
+
 
 
 
@@ -91,6 +105,8 @@ echo divide(1,0) . ' func divide() called below with params for error validation
 
 
 
+
+
 function modulus(&$a,&$b){
 
 	return $a%$b;
@@ -104,6 +120,10 @@ echo "{$a} and $b} are values for modulus.\n";
 
 
 
+
+
+
+
 echo modulus($a,$b) . ' func modulus() called below w/params and by ref' . PHP_EOL;
 
 $a=100;
@@ -113,17 +133,24 @@ $b=3;
 echo modulus($a,$b) . ' func modulus() called below w/params and by ref PART 2' . PHP_EOL;
 
 
+
+
+
+
+
+
 function addition($a, $b =10) {
 
 	return $a + $b;
 
 }
 
-echo addition(3,4) . ' is compare func() result with 2 args and default, default is ignored!' . PHP_EOL;
+echo addition(3,4) . ' is compare func() result with 2 args and default, defaults are ignored!' . PHP_EOL;
 
 echo addition(4) . ' is compare func() result with 1 argument' . PHP_EOL;
 
-echo addition("hi",4);//string,boolean, int/"hi" converted to 0 here.
+echo addition("hi",4) . PHP_EOL;
+//string,boolean, int/"hi" converted to 0 here.
 
 
 function minus($a = 20, $b =10) {
@@ -132,25 +159,27 @@ function minus($a = 20, $b =10) {
 
 }
 
-echo minus(40,5);//20 and 10 are overwritten;
-echo minus();// result = 20 -10
-echo minus(40);//result = 40 -10;
+echo minus(40,5) . ' defaults with minus()' . PHP_EOL;//20 and 10 are overwritten;
+echo minus() . ' defaults with minus()' . PHP_EOL;;// result = 20 -10
+echo minus(40) . ' defaults with minus()' . PHP_EOL;;//result = 40 -10;
 
 //must supply at least 4 arguments. less than four throws an error.
-function superSubtraction($r, $s, $t, $v = 2, $w = 1) {
+function superSubtraction($r, $s, $t, $u, $v = 2, $w = 1) {
 
-	return (int)$r - (int)$s - (int)$t - (int)$v - (int)$w;
+	return (int)$r - (int)$s - (int)$t - (int)$u - (int)$v - (int)$w;
 
 }
+
+echo "\n\n";
 
 echo superSubtraction(200,7,6,5) . '   super subtraction function' . PHP_EOL;
 
 
-function throwMessage($a=0,$b=0){
+function throwErrorMessage($a,$b){
 
 	if(!is_numeric($a) || !is_numeric($b)){
 
-		echo "Invalid operation. Throwback error func(). Please recheck your arguments!." . PHP_EOL;
+		echo "Invalid operation. THROWBACK THROWBACK error func(). Please recheck your arguments!." . PHP_EOL;
 	}
 }
 

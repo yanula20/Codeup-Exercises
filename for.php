@@ -43,7 +43,13 @@ do {
 
 	}
 
-} while( !is_numeric ($a) || !is_numeric ($b) || !is_numeric ($increment) );
+} while( !is_numeric ($a) || !is_numeric ($b) || !is_numeric ($increment));
+
+$a = (int)$a;
+
+$b = (int)$b;
+
+$(int) = $increment;
 
 
 if ($a < $b) {
