@@ -25,9 +25,6 @@ if(!is_readable($filename)) {
 }
 
 
-
-
-
 $handle = fopen($filename, 'r');
 var_dump($handle);
 
@@ -40,7 +37,6 @@ function stringInsert($str,$insertstr,$pos)
 }  
 
 
-
 function parseContacts($filename){ 
 
     $contacts = array();
@@ -50,23 +46,20 @@ function parseContacts($filename){
 	$contents = fread($handle, filesize($filename));
 
 	$contentsArray = explode("\n", $contents);
-
 	
 	array_pop($contentsArray);
 
-
 	foreach($contentsArray as $data => $value){//arr,index,str
+
 		$explodedContents = explode('|', $value);
 
 		$hyphenOne = stringInsert($explodedContents[1],"-",3);
+
 		$finalNumber = stringInsert($hyphenOne,"-",7);
-		
-		
 
 		$newArray = ['name'   => $explodedContents[0],
 					 'number' => $finalNumber];
 		
-
 		array_push($contacts,$newArray);
 
 	}
@@ -74,8 +67,5 @@ function parseContacts($filename){
 	return $contacts;
 
 }
-
-
-
 
 var_dump(parseContacts('contacts.txt'));

@@ -12,8 +12,6 @@ $physicistsArray = explode(', ', $physicistsString);
 
 var_dump($physicistsArray);
 
-
-
 function humanizedList($array, $sort = false) {
 
 	if ($sort === true) {

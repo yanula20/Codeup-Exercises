@@ -43,7 +43,7 @@ function merge_arrays($array1,$array2){
 
 			} else {
 
-				$array3[] = array_shift($array1);
+				array_push($array3,$value);
 			}
 
 	} //end foreach

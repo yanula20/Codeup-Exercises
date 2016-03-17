@@ -1,37 +1,36 @@
 <?php
 
+function logMessage($logLevel, $message){
+
+	$filename = 'log-' . date("Y-m-d") . '.log' ;
+
+	$handle = fopen($filename, 'a');
 
 
-if($argc !== 2){
+	$date = date("Y-m-d,h:m:s");
 
-   echo 'Usage: php contact-parser.php filename';
-   exit(1);
+
+    fwrite($handle, $date . ' ' . $logLevel . ' ' . $message . PHP_EOL);
+
+
+    fclose($handle);
+	
+}
+
+
+
+function logInfo($logLevel){
+
+	return logMessage("INFO", $logLevel);
 
 }
 
- $filename = $argv[1];//php [0], txt [1],  
+function logError($message){
 
-if(!file_exists($filename)){
-
-	echo "File $filename does not exist.";
-	exit(1);
-
-} 
-
-
-if(!is_readable($filename)) {
-
-	echo "File $filename cannot be read";
-	exit(1);
+	return logMessage("ERROR", $message);
 
 }
 
-function logMessage($logLevel, $message)
-{
-    date_default_timezone_set('GMT');
+logInfo("This is an info message.");
 
-	echo date("Y-m-d,h:m:s");
-}
-
-logMessage("INFO", "This is an info message.");
-logMessage("ERROR", "This is an info message.");
+logError("This is an info message.");

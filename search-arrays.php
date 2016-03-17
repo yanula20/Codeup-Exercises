@@ -29,6 +29,7 @@ function isInArray($names, $compare){
 
 echo isInArray($names,$compare) . PHP_EOL;
 
+
 function compareArrays($array1,$array2){
 
 	$count = 0;
@@ -48,10 +49,20 @@ function compareArrays($array1,$array2){
 }  
 
 
-echo compareArrays($names,$compare) . PHP_EOL;
+echo 'There are ' . compareArrays($names,$compare) . ' people in both arrays' . PHP_EOL;
 
 
 
 $names2 = ['Marc Andreessen', 'Tim Berners-Lee', 'Len Bosack', 'Steve Case', 'Vint Cerf', 'Len Kleinrock', 'J.C.R. Licklider', 'Bob Metcalfe', 'Ray Tomlinson'];
 
-$result = array_search('Bill Gates', $names);
+$result = array_search('Marc Andreessen', $names2);
+// $result = array_search('Bruece Lee', $names2);
+
+if ($result !== false){
+
+	echo "That name is present in the array.\n";
+
+}else {
+
+	echo "That name is not present in the array.\n";
+}
